@@ -916,8 +916,8 @@ mempool(bool add_header_and_footer = false, uint64_t no_of_mempool_tx = 25)
                 {"hash"            , pod_to_hex(mempool_tx.tx_hash)},
                 {"fee"             , mempool_tx.fee_micro_str},
                 {"payed_for_kB"    , mempool_tx.payed_for_kB_micro_str},
-                {"xmr_inputs"      , mempool_tx.xmr_inputs_str},
-                {"xmr_outputs"     , mempool_tx.xmr_outputs_str},
+                {"tabo_inputs"      , mempool_tx.xmr_inputs_str},
+                {"tabo_outputs"     , mempool_tx.xmr_outputs_str},
                 {"no_inputs"       , mempool_tx.no_inputs},
                 {"no_outputs"      , mempool_tx.no_outputs},
                 {"no_nonrct_inputs", mempool_tx.num_nonrct_inputs},
@@ -5783,7 +5783,7 @@ json_version()
             {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
             {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
             {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-            {"monero_version_full" , string {MONERO_VERSION_FULL}},
+            {"tabo_version_full" , string {MONERO_VERSION_FULL}},
             {"api"                 , ONIONEXPLORER_RPC_VERSION},
             {"blockchain_height"   , core_storage->get_current_blockchain_height()}
     };
@@ -5969,8 +5969,8 @@ get_tx_json(const transaction& tx, const tx_details& txd)
             {"tx_fee"      , txd.fee},
             {"mixin"       , txd.mixin_no},
             {"tx_size"     , txd.size},
-            {"xmr_outputs" , txd.xmr_outputs},
-            {"xmr_inputs"  , txd.xmr_inputs},
+            {"tabo_outputs" , txd.xmr_outputs},
+            {"tabo_inputs"  , txd.xmr_inputs},
             {"tx_version"  , static_cast<uint64_t>(txd.version)},
             {"rct_type"    , tx.rct_signatures.type},
             {"coinbase"    , is_coinbase(tx)},
@@ -6900,7 +6900,7 @@ get_footer()
             {"last_git_commit_hash", string {GIT_COMMIT_HASH}},
             {"last_git_commit_date", string {GIT_COMMIT_DATETIME}},
             {"git_branch_name"     , string {GIT_BRANCH_NAME}},
-            {"monero_version_full" , string {MONERO_VERSION_FULL}},
+            {"tabo_version_full" , string {MONERO_VERSION_FULL}},
             {"api"                 , std::to_string(ONIONEXPLORER_RPC_VERSION_MAJOR)
                                      + "."
                                      + std::to_string(ONIONEXPLORER_RPC_VERSION_MINOR)},

@@ -23,7 +23,7 @@ CurrentBlockchainStatus::set_blockchain_variables(MicroCore* _mcore,
 void
 CurrentBlockchainStatus::start_monitor_blockchain_thread()
 {
-    total_emission_atomic = Emission {1, 0, 0};
+    total_emission_atomic = Emission {0, 0, 1};
 
     string emmision_saved_file = get_output_file_path().string();
 
@@ -127,7 +127,7 @@ CurrentBlockchainStatus::Emission
 CurrentBlockchainStatus::calculate_emission_in_blocks(
         uint64_t start_blk, uint64_t end_blk)
 {
-    Emission emission_calculated {1, 0, 0};
+    Emission emission_calculated {0, 0, 1};
 
     while (start_blk < end_blk)
     {
@@ -209,7 +209,7 @@ CurrentBlockchainStatus::load_current_emission_amount()
         return false;
     }
 
-    Emission emission_loaded {1, 0, 0};
+    Emission emission_loaded {0, 0, 1};
 
     uint64_t read_check_sum {0};
 
@@ -297,13 +297,13 @@ CurrentBlockchainStatus::is_thread_running()
    return is_running;
 }
 
-bf::path CurrentBlockchainStatus::blockchain_path {"/home/mwo/.bitmonero/lmdb"};
+bf::path CurrentBlockchainStatus::blockchain_path {"~/.tabo/lmdb"};
 
 cryptonote::network_type CurrentBlockchainStatus::nettype {cryptonote::network_type::MAINNET};
 
 string CurrentBlockchainStatus::output_file {"emission_amount.txt"};
 
-string CurrentBlockchainStatus::daemon_url {"http:://127.0.0.1:18081"};
+string CurrentBlockchainStatus::daemon_url {"http:://127.0.0.1:19877"};
 
 uint64_t  CurrentBlockchainStatus::blockchain_chunk_size {10000};
 
